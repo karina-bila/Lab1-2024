@@ -39,21 +39,42 @@ namespace Lab1 {
 
 	protected:
 
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
+
+
+
 	private: System::Windows::Forms::Label^ label3;
 
 
 
 
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::TextBox^ textBox2;
+
+
 
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ êîë³ğToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ôîãToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ âèõ³äToolStripMenuItem;
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip2;
+	private: System::Windows::Forms::ToolStripMenuItem^ òåêñòToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ÷åğâîíèéToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ çåëåíèéToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñèí³éToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ÷åğâîíèéToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ çåëåíèéToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñèí³éToolStripMenuItem1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ÷åğâîíèéToolStripMenuItem2;
+	private: System::Windows::Forms::ToolStripMenuItem^ çåëåíèéToolStripMenuItem2;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñèí³éToolStripMenuItem2;
+	private: System::Windows::Forms::ToolStripMenuItem^ ÷åğâîíèéToolStripMenuItem3;
+	private: System::Windows::Forms::ToolStripMenuItem^ çåëåíèéToolStripMenuItem3;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñèí³éToolStripMenuItem3;
 
-	private: System::Windows::Forms::ListBox^ listBox1;
+	private: System::ComponentModel::IContainer^ components;
+
+
+
 
 
 
@@ -61,7 +82,7 @@ namespace Lab1 {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -70,51 +91,32 @@ namespace Lab1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->components = (gcnew System::ComponentModel::Container());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->êîë³ğToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ôîãToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->÷åğâîíèéToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çåëåíèéToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñèí³éToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->òåêñòToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->÷åğâîíèéToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çåëåíèéToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñèí³éToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âèõ³äToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->÷åğâîíèéToolStripMenuItem2 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çåëåíèéToolStripMenuItem2 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñèí³éToolStripMenuItem2 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+			this->÷åğâîíèéToolStripMenuItem3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çåëåíèéToolStripMenuItem3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñèí³éToolStripMenuItem3 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
+			this->contextMenuStrip1->SuspendLayout();
+			this->contextMenuStrip2->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(110, 18);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(272, 25);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Ğåêóğåíòíà ïîñë³äîâí³ñòü";
-			// 
-			// button1
-			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(49, 373);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(127, 39);
-			this->button1->TabIndex = 3;
-			this->button1->Text = L"Îá÷èñëèòè";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// button2
-			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(314, 373);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(127, 39);
-			this->button2->TabIndex = 4;
-			this->button2->Text = L"Î÷èñòèòè";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// label3
 			// 
@@ -127,119 +129,241 @@ namespace Lab1 {
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"© 2024, Á³ëà Êàğ³íà";
 			// 
-			// textBox1
-			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->textBox1->Location = System::Drawing::Point(76, 132);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 27);
-			this->textBox1->TabIndex = 10;
-			// 
-			// textBox2
-			// 
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Corbel", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->textBox2->Location = System::Drawing::Point(76, 165);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 27);
-			this->textBox2->TabIndex = 11;
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label1->ContextMenuStrip = this->contextMenuStrip1;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 24, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(38, 140);
+			this->label1->Location = System::Drawing::Point(187, 192);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(40, 19);
+			this->label1->Size = System::Drawing::Size(114, 37);
 			this->label1->TabIndex = 13;
-			this->label1->Text = L"a0 =";
+			this->label1->Text = L"ÒÅÊÑÒ";
 			// 
-			// label4
+			// menuStrip1
 			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(38, 173);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(40, 19);
-			this->label4->TabIndex = 14;
-			this->label4->Text = L"a1 =";
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->êîë³ğToolStripMenuItem,
+					this->âèõ³äToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(491, 24);
+			this->menuStrip1->TabIndex = 14;
+			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// listBox1
+			// êîë³ğToolStripMenuItem
 			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(220, 64);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(245, 251);
-			this->listBox1->TabIndex = 16;
+			this->êîë³ğToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ôîãToolStripMenuItem,
+					this->òåêñòToolStripMenuItem
+			});
+			this->êîë³ğToolStripMenuItem->Name = L"êîë³ğToolStripMenuItem";
+			this->êîë³ğToolStripMenuItem->Size = System::Drawing::Size(50, 20);
+			this->êîë³ğToolStripMenuItem->Text = L"Êîë³ğ";
+			// 
+			// ôîãToolStripMenuItem
+			// 
+			this->ôîãToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->÷åğâîíèéToolStripMenuItem1,
+					this->çåëåíèéToolStripMenuItem1, this->ñèí³éToolStripMenuItem1
+			});
+			this->ôîãToolStripMenuItem->Name = L"ôîãToolStripMenuItem";
+			this->ôîãToolStripMenuItem->Size = System::Drawing::Size(103, 22);
+			this->ôîãToolStripMenuItem->Tag = L"";
+			this->ôîãToolStripMenuItem->Text = L"Ôîí";
+			// 
+			// ÷åğâîíèéToolStripMenuItem1
+			// 
+			this->÷åğâîíèéToolStripMenuItem1->Name = L"÷åğâîíèéToolStripMenuItem1";
+			this->÷åğâîíèéToolStripMenuItem1->Size = System::Drawing::Size(129, 22);
+			this->÷åğâîíèéToolStripMenuItem1->Text = L"×åğâîíèé";
+			this->÷åğâîíèéToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::÷åğâîíèéToolStripMenuItem1_Click);
+			// 
+			// çåëåíèéToolStripMenuItem1
+			// 
+			this->çåëåíèéToolStripMenuItem1->Name = L"çåëåíèéToolStripMenuItem1";
+			this->çåëåíèéToolStripMenuItem1->Size = System::Drawing::Size(129, 22);
+			this->çåëåíèéToolStripMenuItem1->Text = L"Çåëåíèé";
+			this->çåëåíèéToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::çåëåíèéToolStripMenuItem1_Click);
+			// 
+			// ñèí³éToolStripMenuItem1
+			// 
+			this->ñèí³éToolStripMenuItem1->Name = L"ñèí³éToolStripMenuItem1";
+			this->ñèí³éToolStripMenuItem1->Size = System::Drawing::Size(129, 22);
+			this->ñèí³éToolStripMenuItem1->Text = L"Ñèí³é";
+			this->ñèí³éToolStripMenuItem1->Click += gcnew System::EventHandler(this, &MyForm::ñèí³éToolStripMenuItem1_Click);
+			// 
+			// òåêñòToolStripMenuItem
+			// 
+			this->òåêñòToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->÷åğâîíèéToolStripMenuItem,
+					this->çåëåíèéToolStripMenuItem, this->ñèí³éToolStripMenuItem
+			});
+			this->òåêñòToolStripMenuItem->Name = L"òåêñòToolStripMenuItem";
+			this->òåêñòToolStripMenuItem->Size = System::Drawing::Size(103, 22);
+			this->òåêñòToolStripMenuItem->Text = L"Òåêñò";
+			// 
+			// ÷åğâîíèéToolStripMenuItem
+			// 
+			this->÷åğâîíèéToolStripMenuItem->Name = L"÷åğâîíèéToolStripMenuItem";
+			this->÷åğâîíèéToolStripMenuItem->Size = System::Drawing::Size(129, 22);
+			this->÷åğâîíèéToolStripMenuItem->Text = L"×åğâîíèé";
+			this->÷åğâîíèéToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::÷åğâîíèéToolStripMenuItem_Click);
+			// 
+			// çåëåíèéToolStripMenuItem
+			// 
+			this->çåëåíèéToolStripMenuItem->Name = L"çåëåíèéToolStripMenuItem";
+			this->çåëåíèéToolStripMenuItem->Size = System::Drawing::Size(129, 22);
+			this->çåëåíèéToolStripMenuItem->Text = L"Çåëåíèé";
+			this->çåëåíèéToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::çåëåíèéToolStripMenuItem_Click);
+			// 
+			// ñèí³éToolStripMenuItem
+			// 
+			this->ñèí³éToolStripMenuItem->Name = L"ñèí³éToolStripMenuItem";
+			this->ñèí³éToolStripMenuItem->Size = System::Drawing::Size(129, 22);
+			this->ñèí³éToolStripMenuItem->Text = L"Ñèí³é";
+			this->ñèí³éToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñèí³éToolStripMenuItem_Click);
+			// 
+			// âèõ³äToolStripMenuItem
+			// 
+			this->âèõ³äToolStripMenuItem->Name = L"âèõ³äToolStripMenuItem";
+			this->âèõ³äToolStripMenuItem->Size = System::Drawing::Size(48, 20);
+			this->âèõ³äToolStripMenuItem->Text = L"Âèõ³ä";
+			this->âèõ³äToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âèõ³äToolStripMenuItem_Click);
+			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->÷åğâîíèéToolStripMenuItem2,
+					this->çåëåíèéToolStripMenuItem2, this->ñèí³éToolStripMenuItem2
+			});
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(130, 70);
+			// 
+			// ÷åğâîíèéToolStripMenuItem2
+			// 
+			this->÷åğâîíèéToolStripMenuItem2->Name = L"÷åğâîíèéToolStripMenuItem2";
+			this->÷åğâîíèéToolStripMenuItem2->Size = System::Drawing::Size(129, 22);
+			this->÷åğâîíèéToolStripMenuItem2->Text = L"×åğâîíèé";
+			this->÷åğâîíèéToolStripMenuItem2->Click += gcnew System::EventHandler(this, &MyForm::÷åğâîíèéToolStripMenuItem2_Click);
+			// 
+			// çåëåíèéToolStripMenuItem2
+			// 
+			this->çåëåíèéToolStripMenuItem2->Name = L"çåëåíèéToolStripMenuItem2";
+			this->çåëåíèéToolStripMenuItem2->Size = System::Drawing::Size(129, 22);
+			this->çåëåíèéToolStripMenuItem2->Text = L"Çåëåíèé";
+			this->çåëåíèéToolStripMenuItem2->Click += gcnew System::EventHandler(this, &MyForm::çåëåíèéToolStripMenuItem2_Click);
+			// 
+			// ñèí³éToolStripMenuItem2
+			// 
+			this->ñèí³éToolStripMenuItem2->Name = L"ñèí³éToolStripMenuItem2";
+			this->ñèí³éToolStripMenuItem2->Size = System::Drawing::Size(129, 22);
+			this->ñèí³éToolStripMenuItem2->Text = L"Ñèí³é";
+			this->ñèí³éToolStripMenuItem2->Click += gcnew System::EventHandler(this, &MyForm::ñèí³éToolStripMenuItem2_Click);
+			// 
+			// contextMenuStrip2
+			// 
+			this->contextMenuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->÷åğâîíèéToolStripMenuItem3,
+					this->çåëåíèéToolStripMenuItem3, this->ñèí³éToolStripMenuItem3
+			});
+			this->contextMenuStrip2->Name = L"contextMenuStrip2";
+			this->contextMenuStrip2->Size = System::Drawing::Size(130, 70);
+			// 
+			// ÷åğâîíèéToolStripMenuItem3
+			// 
+			this->÷åğâîíèéToolStripMenuItem3->Name = L"÷åğâîíèéToolStripMenuItem3";
+			this->÷åğâîíèéToolStripMenuItem3->Size = System::Drawing::Size(129, 22);
+			this->÷åğâîíèéToolStripMenuItem3->Text = L"×åğâîíèé";
+			this->÷åğâîíèéToolStripMenuItem3->Click += gcnew System::EventHandler(this, &MyForm::÷åğâîíèéToolStripMenuItem3_Click);
+			// 
+			// çåëåíèéToolStripMenuItem3
+			// 
+			this->çåëåíèéToolStripMenuItem3->Name = L"çåëåíèéToolStripMenuItem3";
+			this->çåëåíèéToolStripMenuItem3->Size = System::Drawing::Size(129, 22);
+			this->çåëåíèéToolStripMenuItem3->Text = L"Çåëåíèé";
+			this->çåëåíèéToolStripMenuItem3->Click += gcnew System::EventHandler(this, &MyForm::çåëåíèéToolStripMenuItem3_Click);
+			// 
+			// ñèí³éToolStripMenuItem3
+			// 
+			this->ñèí³éToolStripMenuItem3->Name = L"ñèí³éToolStripMenuItem3";
+			this->ñèí³éToolStripMenuItem3->Size = System::Drawing::Size(129, 22);
+			this->ñèí³éToolStripMenuItem3->Text = L"Ñèí³é";
+			this->ñèí³éToolStripMenuItem3->Click += gcnew System::EventHandler(this, &MyForm::ñèí³éToolStripMenuItem3_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(491, 464);
-			this->Controls->Add(this->listBox1);
-			this->Controls->Add(this->label4);
+			this->ContextMenuStrip = this->contextMenuStrip2;
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
-			this->Text = L"Ğåêóğåíòíà ïîñë³äîâí³ñòü";
+			this->Text = L"Êîíñòğóşâàííÿ ìåíş";
 			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
+			this->contextMenuStrip1->ResumeLayout(false);
+			this->contextMenuStrip2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		//îá÷èñë³òü 10 çíà÷åíü åëåìåíò³â ïîñë³äîâíîñò³. ÿêà çàäàíà ğåêóğåíòíîş ôîğìóëîş a(n+2) = ((3a(n+1) - 2a(n))^2)+1
 
-		//ïî÷àòêîâ³ çíà÷åííÿ a0, a1
-		double a0 = Convert::ToDouble(textBox1->Text);
-		double a1 = Convert::ToDouble(textBox2->Text);
-
-		//îá÷èñëåííÿ 10 çíà÷åíü
-		listBox1->Items->Add("Ïåğø³ 10 çíà÷åíü ïîñë³äîâíîñò³:");
-
-		double a2 = 0;
-		listBox1->Items->Clear();
-		listBox1->Items->Add("a0 = " + a0);
-		listBox1->Items->Add("a1 = " + a1);
-		for (int i = 0; i < 9; i++) {
-			a2 = pow((3 * a1 - 2 * a0), 2) + 1;
-			listBox1->Items->Add("a" + (i + 2) + " = " + a2);
-			a0 = a1;
-			a1 = a2;
-		}
-
-		textBox1->Focus();
-
-
-
-	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		//î÷èùåííÿ ïîë³â
-		textBox1->Clear();
-		textBox2->Clear();
-		listBox1->Items->Clear();
 
-		textBox1->Focus();
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		//öåíòğóâàííÿ ôîğìè
 		this->Location = System::Drawing::Point((Screen::PrimaryScreen->Bounds.Width - this->Width) / 2,
 			(Screen::PrimaryScreen->Bounds.Height - this->Height) / 2);
 
-		//âñòàíîâëåííÿ çíà÷åíü çà çàìîâ÷óâàííÿì
-		textBox1->Text = "1";
-		textBox2->Text = "2";
+	}
+	private: System::Void ÷åğâîíèéToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		label1->ForeColor = Color::Red;
+	}
+	private: System::Void çåëåíèéToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		label1->ForeColor = Color::Green;
+	}
+	private: System::Void ñèí³éToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		label1->ForeColor = Color::Blue;
+	}
+	private: System::Void ÷åğâîíèéToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->BackColor = Color::Red;
+	}
+	private: System::Void çåëåíèéToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->BackColor = Color::Green;
+	}
+	private: System::Void ñèí³éToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->BackColor = Color::Blue;
+	}
+	private: System::Void ÷åğâîíèéToolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
+		label1->ForeColor = Color::Red;
+	}
+	private: System::Void çåëåíèéToolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
+		label1->ForeColor = Color::Green;
+	}
+	private: System::Void ñèí³éToolStripMenuItem2_Click(System::Object^ sender, System::EventArgs^ e) {
+		label1->ForeColor = Color::Blue;
+	}
+	private: System::Void ÷åğâîíèéToolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->BackColor = Color::Red;
+	}
+	private: System::Void çåëåíèéToolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->BackColor = Color::Green;
+	}
+	private: System::Void ñèí³éToolStripMenuItem3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->BackColor = Color::Blue;
+	}
+	private: System::Void âèõ³äToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
 	}
 	};
 }
