@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
-
+#include "Author.h"
+#include "AboutApp.h"
 
 namespace Lab1 {
 
@@ -10,6 +11,9 @@ namespace Lab1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace Lab1;
+	//import author info form
+
 
 	/// <summary>
 	/// Summary for MyForm
@@ -39,14 +43,19 @@ namespace Lab1 {
 
 	protected:
 
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label3;
+
+
+
+
 	private: System::Windows::Forms::Label^ label4;
 
 
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ îá÷èñëèòèToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ î÷èñòèòèToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ïðîÏðîãðàìóToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ïðîÀâòîðàToolStripMenuItem;
 
 
 	private:
@@ -62,100 +71,103 @@ namespace Lab1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->îá÷èñëèòèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->î÷èñòèòèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ïðîÏðîãðàìóToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ïðîÀâòîðàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(15, 9);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(468, 25);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Ïîøóê ìàêñèìàëüíîãî òà ì³í³ìàëüíîãî ÷èñëà";
-			// 
-			// button1
-			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(75, 245);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(127, 39);
-			this->button1->TabIndex = 3;
-			this->button1->Text = L"Îá÷èñëèòè";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
-			// button2
-			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(303, 245);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(127, 39);
-			this->button2->TabIndex = 4;
-			this->button2->Text = L"Î÷èñòèòè";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(9, 317);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(138, 17);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"© 2024, Á³ëà Êàð³íà";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 14.25F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(71, 52);
+			this->label4->Location = System::Drawing::Point(8, 36);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(344, 21);
+			this->label4->Size = System::Drawing::Size(333, 21);
 			this->label4->TabIndex = 6;
-			this->label4->Text = L"Ââåä³òü ä³éñíèõ ÷èñåë (ðîçä³ëÿþ÷è Enter)";
+			this->label4->Text = L"Ââåä³òü ä³éñí³ ÷èñëà (ðîçä³ëÿþ÷è Enter)";
 			// 
 			// richTextBox1
 			// 
-			this->richTextBox1->Location = System::Drawing::Point(12, 108);
+			this->richTextBox1->Location = System::Drawing::Point(5, 73);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(470, 96);
+			this->richTextBox1->Size = System::Drawing::Size(336, 223);
 			this->richTextBox1->TabIndex = 9;
 			this->richTextBox1->Text = L"";
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->îá÷èñëèòèToolStripMenuItem,
+					this->î÷èñòèòèToolStripMenuItem, this->ïðîÏðîãðàìóToolStripMenuItem, this->ïðîÀâòîðàToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(350, 24);
+			this->menuStrip1->TabIndex = 10;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// îá÷èñëèòèToolStripMenuItem
+			// 
+			this->îá÷èñëèòèToolStripMenuItem->Name = L"îá÷èñëèòèToolStripMenuItem";
+			this->îá÷èñëèòèToolStripMenuItem->Size = System::Drawing::Size(81, 20);
+			this->îá÷èñëèòèToolStripMenuItem->Text = L"Îá÷èñëèòè";
+			this->îá÷èñëèòèToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îá÷èñëèòèToolStripMenuItem_Click);
+			// 
+			// î÷èñòèòèToolStripMenuItem
+			// 
+			this->î÷èñòèòèToolStripMenuItem->Name = L"î÷èñòèòèToolStripMenuItem";
+			this->î÷èñòèòèToolStripMenuItem->Size = System::Drawing::Size(72, 20);
+			this->î÷èñòèòèToolStripMenuItem->Text = L"Î÷èñòèòè";
+			this->î÷èñòèòèToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::î÷èñòèòèToolStripMenuItem_Click);
+			// 
+			// ïðîÏðîãðàìóToolStripMenuItem
+			// 
+			this->ïðîÏðîãðàìóToolStripMenuItem->Name = L"ïðîÏðîãðàìóToolStripMenuItem";
+			this->ïðîÏðîãðàìóToolStripMenuItem->Size = System::Drawing::Size(99, 20);
+			this->ïðîÏðîãðàìóToolStripMenuItem->Text = L"Ïðî ïðîãðàìó";
+			this->ïðîÏðîãðàìóToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïðîÏðîãðàìóToolStripMenuItem_Click);
+			// 
+			// ïðîÀâòîðàToolStripMenuItem
+			// 
+			this->ïðîÀâòîðàToolStripMenuItem->Name = L"ïðîÀâòîðàToolStripMenuItem";
+			this->ïðîÀâòîðàToolStripMenuItem->Size = System::Drawing::Size(82, 20);
+			this->ïðîÀâòîðàToolStripMenuItem->Text = L"Ïðî àâòîðà";
+			this->ïðîÀâòîðàToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïðîÀâòîðàToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(494, 341);
+			this->ClientSize = System::Drawing::Size(350, 308);
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"Function";
 			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		//center the form
+		this->Location = System::Drawing::Point((Screen::PrimaryScreen->Bounds.Width - this->Width) / 2,
+			(Screen::PrimaryScreen->Bounds.Height - this->Height) / 2);
+	}
+
+	private: System::Void îá÷èñëèòèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		//ïåðåòâîðåííÿ òåêñòó â ìàñèâ ÷èñåë
 		String^ str = richTextBox1->Text;
 		array<String^>^ arr = str->Split('\n');
@@ -178,14 +190,19 @@ namespace Lab1 {
 			+ "\nÌ³í³ìàëüíå ÷èñëî: "
 			+ min + "\nÐ³çíèöÿ: " + diff);
 	}
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void î÷èñòèòèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		richTextBox1->Clear();
 		richTextBox1->Focus();
 	}
-	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		//center the form
-		this->Location = System::Drawing::Point((Screen::PrimaryScreen->Bounds.Width - this->Width) / 2,
-			(Screen::PrimaryScreen->Bounds.Height - this->Height) / 2);
+	private: System::Void ïðîÀâòîðàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Author^ form = gcnew Author();
+
+		form->ShowDialog();
+	}
+	private: System::Void ïðîÏðîãðàìóToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		AboutApp^ form = gcnew AboutApp();
+
+		form->ShowDialog();
 	}
 	};
 }
