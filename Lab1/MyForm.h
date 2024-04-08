@@ -125,9 +125,9 @@ namespace Lab1 {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(12, 73);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(315, 31);
+			this->label1->Size = System::Drawing::Size(338, 31);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"¬вед≥ть масив через кому";
+			this->label1->Text = L"¬вед≥ть масив через проб≥л";
 			// 
 			// label2
 			// 
