@@ -1,6 +1,9 @@
 #pragma once
-#include <cmath>
-
+#include "MyForm.h"
+#include <vector>
+#include <list>
+#include <vcclr.h>
+#include <random>
 
 namespace Lab1 {
 
@@ -10,25 +13,63 @@ namespace Lab1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
 
-	/// <summary>
-	/// Summary for MyForm
-	/// </summary>
+	public value struct Student {
+		String^ firstName;
+		String^ lastName;
+		String^ middleName;
+		String^ group;
+		int age;
+		int course;
+		double firstSubjectMark;
+		double secondSubjectMark;
+		double thirdSubjectMark;
+		double fourthSubjectMark;
+		double fifthSubjectMark;
+	};
+
+
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+	private:
+		List<Student>^ dataList;
+
 	public:
 		MyForm(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			dataList = gcnew List<Student>();
+
+			dataGridView1 = gcnew DataGridView();
+
+			dataGridView1->Dock = DockStyle::Fill;
+			dataGridView1->Columns->Add("firstName", "Ім'я");
+			dataGridView1->Columns->Add("lastName", "Прізвище");
+			dataGridView1->Columns->Add("middleName", "По-батькові");
+			dataGridView1->Columns->Add("group", "Група");
+			dataGridView1->Columns->Add("age", "Вік");
+			dataGridView1->Columns->Add("course", "Курс");
+			dataGridView1->Columns->Add("firstSubjectMark", "Предмет 1");
+			dataGridView1->Columns->Add("secondSubjectMark", "Предмет 2");
+			dataGridView1->Columns->Add("thirdSubjectMark", "Предмет 3");
+			dataGridView1->Columns->Add("fourthSubjectMark", "Предмет 4");
+			dataGridView1->Columns->Add("fifthSubjectMark", "Предмет 5");
+
+			dataGridView1->Location = System::Drawing::Point(0, menuStrip1->Height);
+			dataGridView1->Size = System::Drawing::Size(this->ClientSize.Width, this->ClientSize.Height - menuStrip1->Height);
+
+			dataGridView1->Dock = DockStyle::None;
+			dataGridView1->AllowUserToAddRows = false;
+			dataGridView1->AllowUserToDeleteRows = false;
+			dataGridView1->AllowUserToOrderColumns = false;
+			dataGridView1->AllowUserToResizeColumns = false;
+			dataGridView1->AllowUserToResizeRows = false;
+
+			this->Controls->Add(dataGridView1);
 		}
 
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~MyForm()
 		{
 			if (components)
@@ -36,195 +77,179 @@ namespace Lab1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
-	protected:
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ записатиДаніToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ проПрограмуToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ проАвтораToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ вивестиВідміниківToolStripMenuItem;
+
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
-#pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->записатиДаніToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->проПрограмуToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->проАвтораToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->вивестиВідміниківToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
-			// label1
+			// menuStrip1
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(96, 157);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(51, 31);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"x =";
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->записатиДаніToolStripMenuItem,
+					this->вивестиВідміниківToolStripMenuItem, this->проПрограмуToolStripMenuItem, this->проАвтораToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1179, 24);
+			this->menuStrip1->TabIndex = 0;
+			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// textBox1
+			// записатиДаніToolStripMenuItem
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->textBox1->Location = System::Drawing::Point(153, 154);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(299, 38);
-			this->textBox1->TabIndex = 1;
+			this->записатиДаніToolStripMenuItem->Name = L"записатиДаніToolStripMenuItem";
+			this->записатиДаніToolStripMenuItem->Size = System::Drawing::Size(95, 20);
+			this->записатиДаніToolStripMenuItem->Text = L"Записати дані";
+			this->записатиДаніToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::записатиДаніToolStripMenuItem_Click_1);
 			// 
-			// label2
+			// проПрограмуToolStripMenuItem
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(44, 9);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(493, 39);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Обчислення значення функції";
+			this->проПрограмуToolStripMenuItem->Name = L"проПрограмуToolStripMenuItem";
+			this->проПрограмуToolStripMenuItem->Size = System::Drawing::Size(99, 20);
+			this->проПрограмуToolStripMenuItem->Text = L"Про програму";
+			this->проПрограмуToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::проПрограмуToolStripMenuItem_Click);
 			// 
-			// button1
+			// проАвтораToolStripMenuItem
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(75, 314);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(127, 39);
-			this->button1->TabIndex = 3;
-			this->button1->Text = L"Обчислити";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+			this->проАвтораToolStripMenuItem->Name = L"проАвтораToolStripMenuItem";
+			this->проАвтораToolStripMenuItem->Size = System::Drawing::Size(82, 20);
+			this->проАвтораToolStripMenuItem->Text = L"Про автора";
+			this->проАвтораToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::проАвтораToolStripMenuItem_Click);
 			// 
-			// button2
+			// вивестиВідміниківToolStripMenuItem
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(245, 314);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(127, 39);
-			this->button2->TabIndex = 4;
-			this->button2->Text = L"Очистити";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(12, 442);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(138, 17);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"© 2024, Біла Каріна";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(96, 221);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(51, 31);
-			this->label4->TabIndex = 6;
-			this->label4->Text = L"y =";
-			// 
-			// textBox2
-			// 
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Times New Roman", 20, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->textBox2->Location = System::Drawing::Point(153, 221);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(299, 38);
-			this->textBox2->TabIndex = 7;
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(138, 51);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(314, 83);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-			this->pictureBox1->TabIndex = 8;
-			this->pictureBox1->TabStop = false;
+			this->вивестиВідміниківToolStripMenuItem->Name = L"вивестиВідміниківToolStripMenuItem";
+			this->вивестиВідміниківToolStripMenuItem->Size = System::Drawing::Size(122, 20);
+			this->вивестиВідміниківToolStripMenuItem->Text = L"Вивести відміників";
+			this->вивестиВідміниківToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::вивестиВідміниківToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(630, 468);
-			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(1179, 468);
+			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedDialog;
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Function";
 			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//check if the input is correct and is double
-	if (textBox1->Text == "") {
-		MessageBox::Show("Введіть значення x", "Помилка", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		textBox1->Focus();
-		return;
+
+		array<String^>^ firstNames;
+		array<String^>^ lastNames;
+		array<String^>^ middleNames;
+
+	public: void addStudent() {
+		initializeNames();
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_int_distribution<> dis(1, 5);
+		std::uniform_int_distribution<> disAge(17, 22);
+		std::uniform_int_distribution<> disCourse(1, 6);
+		std::uniform_int_distribution<> disMark(3, 5);
+
+		Student student = Student();
+		student.firstName = firstNames[randomInt(0, firstNames->Length - 1)];
+		student.lastName = lastNames[randomInt(0, lastNames->Length - 1)];
+		student.middleName = middleNames[randomInt(0, middleNames->Length - 1)];
+		student.group = gcnew String("ГР-" + dis(gen));
+		student.age = disAge(gen);
+		student.course = disCourse(gen);
+		student.firstSubjectMark = disMark(gen);
+		student.secondSubjectMark = disMark(gen);
+		student.thirdSubjectMark = disMark(gen);
+		student.fourthSubjectMark = disMark(gen);
+		student.fifthSubjectMark = disMark(gen);
+
+		dataList->Add(student);
 	}
-	double doubleValue;
-	if (!System::Double::TryParse(textBox1->Text, doubleValue)) {
-		MessageBox::Show("Введіть число", "Помилка", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		textBox1->Focus();
-		return;
+
+	public: void loadStudents() {
+		dataGridView1->Rows->Clear();
+		for each (Student student in dataList) {
+			dataGridView1->Rows->Add(student.firstName, student.lastName, student.middleName, student.group, student.age, student.course, student.firstSubjectMark, student.secondSubjectMark, student.thirdSubjectMark, student.fourthSubjectMark, student.fifthSubjectMark);
+		}
 	}
 
+	public: int randomInt(int min, int max) {
+		static bool initialized = false;
+		if (!initialized) {
+			srand(time(nullptr));
+			initialized = true;
+		}
+		return min + rand() % (max - min + 1);
+	}
 
-	double x = Convert::ToDouble(textBox1->Text);
-	double y = 0;
-		//y=((ln x^2 + cos x^2) / (cos2x +x^2)) + pow(x, 1/3)/x
-	y = ((log(pow(x, 2)) + cos(pow(x, 2))) / (cos(2 * x) + pow(x, 2))) + pow(x, 1.0 / 3) / x;
-	textBox2->Text = Convert::ToString(y);
+	protected: void initializeNames() {
+		firstNames = gcnew array<String^> { "Іван", "Петро", "Сидор", "Василь", "Олег", "Микола", "Віктор", "Олександр", "Ігор", "Володимир" };
+		lastNames = gcnew array<String^>{ "Білий", "Чорний", "Червоний", "Жовтий", "Зелений", "Синій", "Фіолетовий", "Блакитний", "Бірюзовий", "Оранжевий" };
+		middleNames = gcnew array<String^>{ "Іванович", "Петрович", "Сидорович", "Васильович", "Олегович", "Миколайович", "Вікторович", "Олександрович", "Ігорович", "Володимирович" };
+	}
 
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	textBox1->Clear();
-	textBox2->Clear();
-	textBox1->Focus();
-}
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-	//center the form
-	this->Location = System::Drawing::Point((Screen::PrimaryScreen->Bounds.Width - this->Width) / 2,
-		(Screen::PrimaryScreen->Bounds.Height - this->Height) / 2);
-}
-};
+	private: System::Void записатиДаніToolStripMenuItem_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		addStudent();
+
+		loadStudents();
+
+	}
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		addStudent();
+
+		loadStudents();
+
+	}
+
+	private: System::Void проПрограмуToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("Програма для вивчення роботи з структурами", "Про програму", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void проАвтораToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("©Біла Карина Русланівна \n Студенка групи 3СОМ", "Про автора", MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void вивестиВідміниківToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		List<Student>^ excellentStudents = gcnew List<Student>();
+		for each (Student student in dataList) {
+			int averageMark = (student.firstSubjectMark + student.secondSubjectMark + student.thirdSubjectMark + student.fourthSubjectMark + student.fifthSubjectMark) / 5;
+			if (averageMark >= 4) {
+				excellentStudents->Add(student);
+			}
+		}
+
+		if (excellentStudents->Count == 0) {
+			MessageBox::Show("Відміників немає", "Відміники", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+		else {
+			String^ message = "Відміники:\n";
+			for each (Student student in excellentStudents) {
+				message += student.firstName + " " + student.lastName + " " + student.middleName + "\n";
+			}
+			MessageBox::Show(message, "Відміники", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
+	}
+	};
 }
