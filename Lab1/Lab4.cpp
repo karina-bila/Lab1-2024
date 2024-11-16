@@ -18,7 +18,7 @@ int main()
 
 	const int countryCount = 10;
 
-	//array of countries
+	//struct of countries
 	Country countries[10] = {
 		{"Україна", "Київ", 42000000, 603549},
 		{"Польща", "Варшава", 38000000, 312696},
