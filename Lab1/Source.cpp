@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <stack>
+#include <queue>
 
 using namespace std;
 
@@ -10,39 +10,30 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	//ініціалізація змінних
-	int n, sum = 0;
+	//створити чергу цілих чисел
+	queue<int> q;
 
-	//Введення кількості елементів стеку
-	cout << "Введіть кількість елементів стеку: ";
-	cin >> n;
-
-	//Створення стеку
-	stack<int> stack;
-
-	//Введення елементів стеку
+	//додавання елементів у чергу з користувацьким вибором
+	int n;
+	cout << "Введіть кількість елементів черги: "; cin >> n;
 	for (int i = 0; i < n; i++)
 	{
-		int value;
-		cout << "Введіть " << i + 1 << " елемент: ";
-		cin >> value;
-		stack.push(value);
+		int a;
+		cout << "Введіть " << i + 1 << " елемент черги: "; cin >> a;
+		q.push(a);
 	}
 
-	//Обчислення суми непарних елементів стеку
-	while (!stack.empty())
+	//знайти найменший елемент черги
+
+	int min = q.front();
+	while (!q.empty())
 	{
-		int value = stack.top();
-		stack.pop();
-
-		if (value % 2 != 0)
-		{
-			sum += value;
-		}
+		if (q.front() < min)
+			min = q.front();
+		q.pop();
 	}
 
-	//Виведення результату
-	cout << "Сума непарних елементів стеку: " << sum << endl;
+	cout << "Найменший елемент черги: " << min << endl;
 
 	system("pause");
 
