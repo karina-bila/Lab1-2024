@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <forward_list>
 #include <random>
+#include <list>
 
 using namespace std;
 
@@ -13,50 +14,66 @@ int main()
 
 	random_device rd;
 	mt19937 gen(rd());
-	uniform_real_distribution<> dis(-50.0, 50.0);
+	uniform_real_distribution<> dis(-20.0, 20.0);
 
-	//Створюємо список
-	cout << "Введіть довжину списку: ";
+	//створюємо лінійний двозв’язний список з дійсних чисел з довжини заданої користувачем
+	list<double> list;
 	int size;
 
+	cout << "Введіть розмір списку: ";
 	cin >> size;
-
-	forward_list<double> list;
 
 	for (int i = 0; i < size; i++)
 	{
-		double randValue = dis(gen);
-		list.push_front(randValue);
+		list.push_back(dis(gen));
 	}
 
-	//Виводимо список на екран
+	//Вивести список на екран
 	cout << "Список: ";
-	for (auto el : list)
+	for (auto it = list.begin(); it != list.end(); it++)
 	{
-		cout << "\n" << el << " ";
+
+		cout << "\n" << *it << " ";
 	}
+	cout << "\n\n";
 
-	// Ітератор на перший елемент списку
-	auto it = list.begin();
-
-	// Перевірка на порожність
-	while (it != list.end() && std::next(it) != list.end()) {
+	//Вставити в список число 1.5 після кожного елемента з від’ємним значенням.
+	for (auto it = list.begin(); it != list.end(); ) {
 		if (*it < 0) {
-			// Якщо поточний елемент від'ємний, видаляємо наступний елемент
-			it = list.erase_after(it); // erase_after оновлює ітератор
+			// Вставляємо 1.5 після поточного елемента
+			it = list.insert(++it, 1.5);
 		}
 		else {
-			// Якщо поточний елемент не від'ємний, рухаємо ітератор вперед
-			++it;
+			++it; // Якщо елемент не від'ємний, просто переміщаємо ітератор
 		}
 	}
 
-	//Виводимо список на екран після видалення
-	cout << endl << "Список після видалення: ";
-	for (auto el : list)
+	//Вивести список на екран
+	cout << "Список з доданим 1.5 після кожного від'ємного числа: ";
+	for (auto it = list.begin(); it != list.end(); it++)
 	{
-		cout << "\n" << el << " ";
+		cout << "\n" << *it << " ";
 	}
+	cout << "\n\n";
+
+	//Вилучити зі списку всі числа від 2 до 5.
+	for (auto it = list.begin(); it != list.end(); /* без інкрементування тут*/) {
+		if (*it >= 2 && *it <= 5) {
+			it = list.erase(it);  // Видаляємо елемент і отримуємо новий ітератор на наступний елемент
+		}
+		else {
+			++it;  // Якщо елемент не в діапазоні, переходимо до наступного
+		}
+	}
+
+	//Вивести список на екран
+	cout << "Список з видаленими числами від 2 до 5: ";
+	for (auto it = list.begin(); it != list.end(); it++)
+	{
+		cout << "\n" << *it << " ";
+	}
+
+
 
 	system("pause");
 
