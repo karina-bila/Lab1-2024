@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <queue>
+#include <forward_list>
+#include <random>
 
 using namespace std;
 
@@ -10,30 +11,52 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	//створити чергу цілих чисел
-	queue<int> q;
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_real_distribution<> dis(-50.0, 50.0);
 
-	//додавання елементів у чергу з користувацьким вибором
-	int n;
-	cout << "Введіть кількість елементів черги: "; cin >> n;
-	for (int i = 0; i < n; i++)
+	//Створюємо список
+	cout << "Введіть довжину списку: ";
+	int size;
+
+	cin >> size;
+
+	forward_list<double> list;
+
+	for (int i = 0; i < size; i++)
 	{
-		int a;
-		cout << "Введіть " << i + 1 << " елемент черги: "; cin >> a;
-		q.push(a);
+		double randValue = dis(gen);
+		list.push_front(randValue);
 	}
 
-	//знайти найменший елемент черги
-
-	int min = q.front();
-	while (!q.empty())
+	//Виводимо список на екран
+	cout << "Список: ";
+	for (auto el : list)
 	{
-		if (q.front() < min)
-			min = q.front();
-		q.pop();
+		cout << "\n" << el << " ";
 	}
 
-	cout << "Найменший елемент черги: " << min << endl;
+	// Ітератор на перший елемент списку
+	auto it = list.begin();
+
+	// Перевірка на порожність
+	while (it != list.end() && std::next(it) != list.end()) {
+		if (*it < 0) {
+			// Якщо поточний елемент від'ємний, видаляємо наступний елемент
+			it = list.erase_after(it); // erase_after оновлює ітератор
+		}
+		else {
+			// Якщо поточний елемент не від'ємний, рухаємо ітератор вперед
+			++it;
+		}
+	}
+
+	//Виводимо список на екран після видалення
+	cout << endl << "Список після видалення: ";
+	for (auto el : list)
+	{
+		cout << "\n" << el << " ";
+	}
 
 	system("pause");
 
