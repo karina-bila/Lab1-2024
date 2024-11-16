@@ -1,6 +1,5 @@
 #pragma once
-#include <cmath>
-#include <ctime>
+#using <Microsoft.VisualBasic.dll>
 
 
 namespace Lab1 {
@@ -11,6 +10,8 @@ namespace Lab1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Collections::Generic;
+
 
 	/// <summary>
 	/// Summary for MyForm
@@ -21,7 +22,6 @@ namespace Lab1 {
 		MyForm(void)
 		{
 			InitializeComponent();
-			// initialaze global stack
 
 		}
 
@@ -45,7 +45,6 @@ namespace Lab1 {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::ListBox^ listBox1;
-	private: System::Collections::Stack^ stack = gcnew System::Collections::Stack();
 
 	private:
 		/// <summary>
@@ -77,9 +76,9 @@ namespace Lab1 {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(42, 91);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(169, 31);
+			this->label1->Size = System::Drawing::Size(164, 31);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Розмір стеку";
+			this->label1->Text = L"Розмір черги";
 			// 
 			// textBox1
 			// 
@@ -98,7 +97,7 @@ namespace Lab1 {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(541, 65);
 			this->label2->TabIndex = 2;
-			this->label2->Text = L"Заповнити стек числами. Обчислити добуток непарних елементів стеку";
+			this->label2->Text = L"Створити чергу цілих чисел. Знайти найменший елемент черги";
 			// 
 			// button1
 			// 
@@ -143,7 +142,7 @@ namespace Lab1 {
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(127, 70);
 			this->button3->TabIndex = 6;
-			this->button3->Text = L"Додати до стеку";
+			this->button3->Text = L"Додати до черги";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
@@ -175,61 +174,72 @@ namespace Lab1 {
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Function";
-			this->TopMost = true;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 
+		System::Collections::Generic::Queue<int> queue;
+
+		bool isQueueInitialized = false;
+		int lastValue;
+
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		//якщо стек пустий вивести повідомлення
-		if (stack->Count == 0) {
-			MessageBox::Show("Стек пустий");
+		if (queue.Count == 0) {
+			MessageBox::Show("Черга пуста");
 			return;
 		}
 
-		//обчислити добуток непарних елементів стеку
-		int result = 1;
-		for each (int i in stack) {
-			if (i % 2 != 0) {
-				result *= i;
+		int min = queue.Peek();
+
+		for each (int value in queue) {
+			if (value < min) {
+				min = value;
 			}
 		}
 
-		//вивести результат на екран
-		if (result == 1) {
-			MessageBox::Show("Немає непарних елементів");
-		}
-		else {
-			MessageBox::Show("Добуток непарних елементів стеку: " + result);
-		}
-
+		MessageBox::Show("Найменший елемент черги: " + min);
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		stack->Clear();
+		//очистити чергу
+		queue.Clear();
+		//очистити listbox
 		listBox1->Items->Clear();
+
+		textBox1->Text = "";
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		srand(time(NULL));
+
 	};
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-		int count = stack->Count;
-		int size = textBox1->Text != "" ? Convert::ToInt32(textBox1->Text) : 0;
+
+		if (textBox1->Text == "") {
+			MessageBox::Show("Введіть розмір черги");
+			return;
+		}
+
+		int size = Convert::ToInt32(textBox1->Text);
 
 
-		if (count < size) {
-			stack->Push(rand() % 100);
-			//clear listbox
-			listBox1->Items->Clear();
-			for each (int i in stack) {
-				listBox1->Items->Add(i);
+		if (queue.Count < size) {
+
+			String^ input = Microsoft::VisualBasic::Interaction::InputBox("Введіть число", "Введення числа", "0", -1, -1);
+
+			if (input == "") {
+				MessageBox::Show("Введіть число");
+				return;
+			}
+			else {
+				int value = Convert::ToInt32(input);
+				queue.Enqueue(value);
+				listBox1->Items->Add(value);
+				lastValue = value;
 			}
 		}
 		else {
-			MessageBox::Show("Стек повний");
+			MessageBox::Show("Черга заповнена");
 		}
-
 	}
 	};
 }
